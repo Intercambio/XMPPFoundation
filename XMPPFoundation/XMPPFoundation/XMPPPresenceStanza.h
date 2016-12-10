@@ -19,9 +19,10 @@ typedef NS_ENUM(NSUInteger, XMPPPresenceStanzaType) {
     XMPPPresenceStanzaTypeUnavailable,
     XMPPPresenceStanzaTypeUnsubscribe,
     XMPPPresenceStanzaTypeUnsubscribed
-};
+} NS_SWIFT_NAME(PresenceStanzaType);
 
+NS_SWIFT_NAME(PresenceStanza)
 @interface XMPPPresenceStanza : XMPPStanza
-+ (nonnull PXDocument *)documentWithPresenceFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to;
++ (nonnull PXDocument *)documentWithPresenceFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to NS_SWIFT_NAME(makeDocumentWithPresenceStanza(from:to:));
 @property (nonatomic, readwrite) XMPPPresenceStanzaType type;
 @end

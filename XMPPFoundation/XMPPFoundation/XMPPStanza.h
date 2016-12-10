@@ -11,6 +11,7 @@
 
 @class XMPPJID;
 
+NS_SWIFT_NAME(Stanza)
 @interface XMPPStanza : PXElement
 @property (nonatomic, readwrite, copy, nullable) XMPPJID *to;
 @property (nonatomic, readwrite, copy, nullable) XMPPJID *from;

@@ -9,9 +9,9 @@
 @import Foundation;
 @import PureXML;
 
-extern NSString * _Nonnull const XMPPStanzaErrorDomain;
-extern NSString * _Nonnull const XMPPStanzaErrorDocumentKey;
-extern NSString * _Nonnull const XMPPStanzaErrorTypeKey;
+extern NSString * _Nonnull const XMPPStanzaErrorDomain NS_SWIFT_NAME(StanzaErrorDomain);
+extern NSString * _Nonnull const XMPPStanzaErrorDocumentKey NS_SWIFT_NAME(StanzaErrorDocumentKey);
+extern NSString * _Nonnull const XMPPStanzaErrorTypeKey NS_SWIFT_NAME(StanzaErrorTypeKey);
 
 typedef NS_ENUM(NSInteger, XMPPStanzaErrorCode) {
     XMPPStanzaErrorCodeBadRequest,            // bad-request
@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, XMPPStanzaErrorCode) {
     XMPPStanzaErrorCodeSubscriptionRequired,  // subscription-required
     XMPPStanzaErrorCodeUndefinedCondition,    // undefined-condition
     XMPPStanzaErrorCodeUnexpectedRequest      // unexpected-request
-};
+} NS_SWIFT_NAME(StanzaErrorCode);
 
 typedef NS_ENUM(NSInteger, XMPPStanzaErrorType) {
     XMPPStanzaErrorTypeUndefined,
@@ -45,8 +45,9 @@ typedef NS_ENUM(NSInteger, XMPPStanzaErrorType) {
     XMPPStanzaErrorTypeContinue,
     XMPPStanzaErrorTypeModify,
     XMPPStanzaErrorTypeWait
-};
+} NS_SWIFT_NAME(StanzaErrorType);
 
+NS_SWIFT_NAME(StanzaError)
 @interface XMPPStanzaError : PXElement
 
 @property (nonatomic, readonly) XMPPStanzaErrorType type;
