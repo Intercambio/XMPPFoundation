@@ -49,6 +49,7 @@
 		F6FAE8631DFCAA720039EE7A /* XMPPStanzaError.h in Headers */ = {isa = PBXBuildFile; fileRef = F6FAE8601DFCAA720039EE7A /* XMPPStanzaError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6FAE8641DFCAA720039EE7A /* XMPPStanzaError.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FAE8611DFCAA720039EE7A /* XMPPStanzaError.m */; };
 		F6FAE8651DFCAA720039EE7A /* XMPPStanzaError.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FAE8611DFCAA720039EE7A /* XMPPStanzaError.m */; };
+		F6FAE86E1DFCBB560039EE7A /* XMPPFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F790341DFC9D2A00DBE00F /* XMPPFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -294,6 +295,7 @@
 			files = (
 				F6FAE83D1DFCA3230039EE7A /* XMPPMessageStanza.h in Headers */,
 				F6FAE8491DFCA3230039EE7A /* XMPPPresenceStanza.h in Headers */,
+				F6FAE86E1DFCBB560039EE7A /* XMPPFoundation.h in Headers */,
 				F6FAE8571DFCA6820039EE7A /* XMPPHandler.h in Headers */,
 				F6FAE8391DFCA3230039EE7A /* XMPPStanza.h in Headers */,
 				F6F7906E1DFC9F7700DBE00F /* XMPPJID.h in Headers */,
