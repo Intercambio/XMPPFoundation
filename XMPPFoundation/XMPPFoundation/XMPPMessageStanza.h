@@ -23,6 +23,6 @@ NS_SWIFT_NAME(MessageStanza)
 @interface XMPPMessageStanza : XMPPStanza
 + (nonnull PXDocument *)documentWithMessageFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to NS_SWIFT_NAME(makeDocumentWithMessageStanza(from:to:));
 @property (nonatomic, readwrite) XMPPMessageStanzaType type;
-@property (nonatomic, readonly, nullable) NSString *originID;
+@property (nonatomic, readwrite, nullable) NSString *originID;
 - (nullable NSString *)stanzaIDBy:(nonnull XMPPJID *)by;
 @end

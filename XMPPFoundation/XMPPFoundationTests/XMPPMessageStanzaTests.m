@@ -97,6 +97,10 @@
     [originID setValue:@"1245" forAttribute:@"id"];
     
     XCTAssertEqualObjects(message.originID, @"1245");
+    
+    message.originID = @"678";
+    
+    XCTAssertEqualObjects(message.originID, @"678");
 }
 
 - (void)testStanzaID {

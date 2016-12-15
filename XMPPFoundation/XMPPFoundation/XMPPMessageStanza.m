@@ -78,11 +78,29 @@
 - (NSString *)originID {
     
     NSDictionary *namespaces = @{@"sid": @"urn:xmpp:sid:0"};
+    
     PXElement *originID = [[self nodesForXPath:@"./sid:origin-id" usingNamespaces:namespaces] firstObject];
     if ([originID isKindOfClass:[PXElement class]]) {
         return [originID valueForAttribute:@"id"];
     } else {
         return nil;
+    }
+}
+
+- (void)setOriginID:(NSString *)originID {
+    
+    NSDictionary *namespaces = @{@"sid": @"urn:xmpp:sid:0"};
+    
+    NSArray *nodes = [self nodesForXPath:@"./sid:origin-id" usingNamespaces:namespaces];
+    for (PXNode *node in nodes) {
+        if ([node isKindOfClass:[PXElement class]]) {
+            [node removeFromParent];
+        }
+    }
+
+    if (originID) {
+        PXElement *originIDElement = [self addElementWithName:@"origin-id" namespace:@"urn:xmpp:sid:0" content:nil];
+        [originIDElement setValue:originID forAttribute:@"id"];
     }
 }
 
