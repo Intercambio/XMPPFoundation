@@ -25,7 +25,7 @@
         XMPPPresenceStanza *presence = (XMPPPresenceStanza *)[document root];
         presence.from = from;
         presence.to = to;
-        presence.stanzaID = [[[NSUUID UUID] UUIDString] lowercaseString];
+        presence.identifier = [[[NSUUID UUID] UUIDString] lowercaseString];
     }
     return document;
 }

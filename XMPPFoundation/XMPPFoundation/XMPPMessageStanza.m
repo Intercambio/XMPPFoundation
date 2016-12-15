@@ -7,6 +7,7 @@
 //
 
 #import "XMPPMessageStanza.h"
+#import "XMPPJID.h"
 
 @implementation XMPPMessageStanza
 
@@ -25,7 +26,7 @@
         XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
         message.from = from;
         message.to = to;
-        message.stanzaID = [[[NSUUID UUID] UUIDString] lowercaseString];
+        message.identifier = [[[NSUUID UUID] UUIDString] lowercaseString];
     }
     return document;
 }
@@ -72,6 +73,30 @@
         break;
     }
     [self setValue:typeString forAttribute:@"type"];
+}
+
+- (NSString *)originID {
+    
+    NSDictionary *namespaces = @{@"sid": @"urn:xmpp:sid:0"};
+    PXElement *originID = [[self nodesForXPath:@"./sid:origin-id" usingNamespaces:namespaces] firstObject];
+    if ([originID isKindOfClass:[PXElement class]]) {
+        return [originID valueForAttribute:@"id"];
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)stanzaIDBy:(XMPPJID *)by {
+    NSString *jidString = [[by bareJID] stringValue];
+    NSDictionary *namespaces = @{@"sid": @"urn:xmpp:sid:0"};
+    for (PXElement *element in [self nodesForXPath:@"./sid:stanza-id" usingNamespaces:namespaces]) {
+        if ([element isKindOfClass:[PXElement class]]) {
+            if ([[element valueForAttribute:@"by"] isEqual:jidString]) {
+                return [element valueForAttribute:@"id"];
+            }
+        }
+    }
+    return nil;
 }
 
 @end

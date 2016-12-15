@@ -25,7 +25,7 @@
         XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
         iq.from = from;
         iq.to = to;
-        iq.stanzaID = [[[NSUUID UUID] UUIDString] lowercaseString];
+        iq.identifier = [[[NSUUID UUID] UUIDString] lowercaseString];
     }
     return document;
 }

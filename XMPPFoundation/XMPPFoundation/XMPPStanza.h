@@ -15,6 +15,6 @@ NS_SWIFT_NAME(Stanza)
 @interface XMPPStanza : PXElement
 @property (nonatomic, readwrite, copy, nullable) XMPPJID *to;
 @property (nonatomic, readwrite, copy, nullable) XMPPJID *from;
-@property (nonatomic, readwrite, copy, nullable) NSString *stanzaID;
+@property (nonatomic, readwrite, copy, nullable) NSString *identifier;
 @property (nonatomic, readonly, nullable) NSError *error;
 @end
