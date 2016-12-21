@@ -25,8 +25,8 @@
 		F62CF7691E0AD85100E77159 /* XMPPDataFormOption.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF75D1E0AD85100E77159 /* XMPPDataFormOption.m */; };
 		F62CF76A1E0ADC4900E77159 /* XMPPDataFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF7491E0AD76B00E77159 /* XMPPDataFormFieldTests.m */; };
 		F62CF76B1E0ADC4A00E77159 /* XMPPDataFormFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF7491E0AD76B00E77159 /* XMPPDataFormFieldTests.m */; };
-		F62CF76F1E0AE24F00E77159 /* XMPPResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F62CF76D1E0AE24F00E77159 /* XMPPResultSet.h */; };
-		F62CF7701E0AE24F00E77159 /* XMPPResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F62CF76D1E0AE24F00E77159 /* XMPPResultSet.h */; };
+		F62CF76F1E0AE24F00E77159 /* XMPPResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F62CF76D1E0AE24F00E77159 /* XMPPResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F62CF7701E0AE24F00E77159 /* XMPPResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F62CF76D1E0AE24F00E77159 /* XMPPResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F62CF7711E0AE24F00E77159 /* XMPPResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF76E1E0AE24F00E77159 /* XMPPResultSet.m */; };
 		F62CF7721E0AE24F00E77159 /* XMPPResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF76E1E0AE24F00E77159 /* XMPPResultSet.m */; };
 		F6F7903B1DFC9D2A00DBE00F /* XMPPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F790311DFC9D2A00DBE00F /* XMPPFoundation.framework */; };

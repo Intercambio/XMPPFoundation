@@ -26,3 +26,4 @@ FOUNDATION_EXPORT const unsigned char XMPPFoundationVersionString[];
 #import <XMPPFoundation/XMPPDataForm.h>
 #import <XMPPFoundation/XMPPDataFormField.h>
 #import <XMPPFoundation/XMPPDataFormOption.h>
+#import <XMPPFoundation/XMPPResultSet.h>
