@@ -162,3 +162,14 @@
 }
 
 @end
+
+@implementation PXElement (XMPPDataForm)
+
+- (nonnull XMPPDataForm *)addFormWith:(XMPPDataFormType)type identifier:(nullable NSString *)identifier {
+    XMPPDataForm *form = (XMPPDataForm *)[self addElementWithName:@"x" namespace:@"jabber:x:data" content:nil];
+    form.type = type;
+    form.identifier = identifier;
+    return  form;
+}
+
+@end

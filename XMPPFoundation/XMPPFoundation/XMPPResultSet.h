@@ -21,4 +21,6 @@
 
 @interface PXElement (XMPPResultSet)
 @property (nonatomic, readwrite, nullable) XMPPResultSet *resultSet;
+- (nonnull XMPPResultSet *)addResultSetWithMax:(NSInteger)max before:(nonnull NSString *)before;
+- (nonnull XMPPResultSet *)addResultSetWithMax:(NSInteger)max after:(nonnull NSString *)after;
 @end

@@ -128,4 +128,18 @@ NSString *const XMPPResultSetNamespace = @"http://jabber.org/protocol/rsm";
     }
 }
 
+- (nonnull XMPPResultSet *)addResultSetWithMax:(NSInteger)max before:(nonnull NSString *)before {
+    XMPPResultSet *set = (XMPPResultSet *)[self addElementWithName:@"set" namespace:XMPPResultSetNamespace content:nil];
+    set.max = max;
+    set.before = before;
+    return set;
+}
+
+- (nonnull XMPPResultSet *)addResultSetWithMax:(NSInteger)max after:(nonnull NSString *)after {
+    XMPPResultSet *set = (XMPPResultSet *)[self addElementWithName:@"set" namespace:XMPPResultSetNamespace content:nil];
+    set.max = max;
+    set.after = after;
+    return set;
+}
+
 @end
