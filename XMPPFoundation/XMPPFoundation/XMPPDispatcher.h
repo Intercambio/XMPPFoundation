@@ -11,6 +11,19 @@
 
 @class XMPPJID;
 @class XMPPFeature;
+@class XMPPMessageStanza;
+@class XMPPPresenceStanza;
+@class XMPPIQStanza;
+
+NS_SWIFT_NAME(DispatcherErrorDomain)
+extern NSString *_Nonnull const XMPPDispatcherErrorDomain;
+
+typedef NS_ENUM(NSInteger, XMPPDispatcherErrorCode) {
+    XMPPDispatcherErrorCodeTimeout,
+    XMPPDispatcherErrorCodeNoSender,
+    XMPPDispatcherErrorCodeNoRoute,
+    XMPPDispatcherErrorCodeInvalidStanza
+} NS_SWIFT_NAME(DispatcherErrorCode);
 
 NS_SWIFT_NAME(Handler)
 @protocol XMPPHandler
