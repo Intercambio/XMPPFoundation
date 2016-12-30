@@ -55,7 +55,7 @@ NS_SWIFT_NAME(IQHandler)
 @end
 
 NS_SWIFT_NAME(Dispatcher)
-@protocol XMPPDispatcher <XMPPConnectionHandler, XMPPMessageHandler, XMPPPresenceHandler, XMPPIQHandler>
+@protocol XMPPDispatcher <XMPPMessageHandler, XMPPPresenceHandler, XMPPIQHandler>
 - (void)addHandler:(nonnull id<XMPPHandler>)handler;
 - (void)addHandler:(nonnull id<XMPPHandler>)handler withIQQueryQNames:(nullable NSArray<PXQName *> *)queryQNames features:(nullable NSArray<XMPPFeature *> *)features;
 - (void)removeHandler:(nonnull id<XMPPHandler>)handler;
