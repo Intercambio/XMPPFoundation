@@ -10,6 +10,7 @@
 @import PureXML;
 
 @class XMPPJID;
+@class XMPPFeature;
 
 NS_SWIFT_NAME(Handler)
 @protocol XMPPHandler
@@ -17,7 +18,7 @@ NS_SWIFT_NAME(Handler)
 
 NS_SWIFT_NAME(ConnectionHandler)
 @protocol XMPPConnectionHandler <XMPPHandler>
-- (void)didConnect:(nonnull XMPPJID *)JID resumed:(BOOL)resumed;
+- (void)didConnect:(nonnull XMPPJID *)JID resumed:(BOOL)resumed features:(nullable NSArray<XMPPFeature *> *)features;
 - (void)didDisconnect:(nonnull XMPPJID *)JID;
 @end
 
@@ -43,6 +44,6 @@ NS_SWIFT_NAME(IQHandler)
 NS_SWIFT_NAME(Dispatcher)
 @protocol XMPPDispatcher <XMPPConnectionHandler, XMPPMessageHandler, XMPPPresenceHandler, XMPPIQHandler>
 - (void)addHandler:(nonnull id<XMPPHandler>)handler;
-- (void)addHandler:(nonnull id<XMPPHandler>)handler withIQQueryQNames:(nullable NSArray<PXQName *> *)queryQNames;
+- (void)addHandler:(nonnull id<XMPPHandler>)handler withIQQueryQNames:(nullable NSArray<PXQName *> *)queryQNames features:(nullable NSArray<XMPPFeature *> *)features;
 - (void)removeHandler:(nonnull id<XMPPHandler>)handler;
 @end

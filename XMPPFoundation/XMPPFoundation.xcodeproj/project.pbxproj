@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6134FA61E168EA3007EC90B /* XMPPFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = F6134FA41E168EA3007EC90B /* XMPPFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6134FA71E168EA3007EC90B /* XMPPFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = F6134FA41E168EA3007EC90B /* XMPPFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6134FA81E168EA3007EC90B /* XMPPFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = F6134FA51E168EA3007EC90B /* XMPPFeature.m */; };
+		F6134FA91E168EA3007EC90B /* XMPPFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = F6134FA51E168EA3007EC90B /* XMPPFeature.m */; };
 		F62CF7521E0AD7D300E77159 /* XMPPDataFormTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF74B1E0AD76B00E77159 /* XMPPDataFormTests.m */; };
 		F62CF7541E0AD7D300E77159 /* XMPPDataFormOptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF74A1E0AD76B00E77159 /* XMPPDataFormOptionTests.m */; };
 		F62CF7551E0AD7D400E77159 /* XMPPDataFormTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F62CF74B1E0AD76B00E77159 /* XMPPDataFormTests.m */; };
@@ -105,6 +109,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F6134FA41E168EA3007EC90B /* XMPPFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFeature.h; sourceTree = "<group>"; };
+		F6134FA51E168EA3007EC90B /* XMPPFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPFeature.m; sourceTree = "<group>"; };
 		F62CF7491E0AD76B00E77159 /* XMPPDataFormFieldTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPDataFormFieldTests.m; sourceTree = "<group>"; };
 		F62CF74A1E0AD76B00E77159 /* XMPPDataFormOptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPDataFormOptionTests.m; sourceTree = "<group>"; };
 		F62CF74B1E0AD76B00E77159 /* XMPPDataFormTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPDataFormTests.m; sourceTree = "<group>"; };
@@ -183,6 +189,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F6134FA01E168E2D007EC90B /* Disco Info */ = {
+			isa = PBXGroup;
+			children = (
+				F6134FA41E168EA3007EC90B /* XMPPFeature.h */,
+				F6134FA51E168EA3007EC90B /* XMPPFeature.m */,
+			);
+			name = "Disco Info";
+			sourceTree = "<group>";
+		};
 		F62CF7481E0AD74000E77159 /* Data Forms */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +249,7 @@
 				F6FAE82D1DFCA3160039EE7A /* Stanza */,
 				F62CF7481E0AD74000E77159 /* Data Forms */,
 				F62CF76C1E0AE23000E77159 /* Result Set Management */,
+				F6134FA01E168E2D007EC90B /* Disco Info */,
 				F6FAE8581DFCA6880039EE7A /* Dispatching */,
 				F6F7904B1DFC9D6300DBE00F /* Supporting FIles */,
 			);
@@ -340,6 +356,7 @@
 			files = (
 				F62CF76F1E0AE24F00E77159 /* XMPPResultSet.h in Headers */,
 				F6FAE83C1DFCA3230039EE7A /* XMPPMessageStanza.h in Headers */,
+				F6134FA61E168EA3007EC90B /* XMPPFeature.h in Headers */,
 				F6FAE8481DFCA3230039EE7A /* XMPPPresenceStanza.h in Headers */,
 				F62CF7621E0AD85100E77159 /* XMPPDataFormField.h in Headers */,
 				F6F790421DFC9D2A00DBE00F /* XMPPFoundation.h in Headers */,
@@ -359,6 +376,7 @@
 			files = (
 				F62CF7701E0AE24F00E77159 /* XMPPResultSet.h in Headers */,
 				F6FAE83D1DFCA3230039EE7A /* XMPPMessageStanza.h in Headers */,
+				F6134FA71E168EA3007EC90B /* XMPPFeature.h in Headers */,
 				F6FAE8491DFCA3230039EE7A /* XMPPPresenceStanza.h in Headers */,
 				F62CF7631E0AD85100E77159 /* XMPPDataFormField.h in Headers */,
 				F6FAE86E1DFCBB560039EE7A /* XMPPFoundation.h in Headers */,
@@ -461,7 +479,7 @@
 				TargetAttributes = {
 					F6F790301DFC9D2A00DBE00F = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					F6F790391DFC9D2A00DBE00F = {
@@ -471,7 +489,7 @@
 					};
 					F6F790501DFC9D7F00DBE00F = {
 						CreatedOnToolsVersion = 8.1;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					F6F790581DFC9D7F00DBE00F = {
@@ -561,6 +579,7 @@
 				F62CF7711E0AE24F00E77159 /* XMPPResultSet.m in Sources */,
 				F62CF7601E0AD85100E77159 /* XMPPDataForm.m in Sources */,
 				F62CF7641E0AD85100E77159 /* XMPPDataFormField.m in Sources */,
+				F6134FA81E168EA3007EC90B /* XMPPFeature.m in Sources */,
 				F6FAE83A1DFCA3230039EE7A /* XMPPStanza.m in Sources */,
 				F6FAE8641DFCAA720039EE7A /* XMPPStanzaError.m in Sources */,
 			);
@@ -592,6 +611,7 @@
 				F62CF7721E0AE24F00E77159 /* XMPPResultSet.m in Sources */,
 				F62CF7611E0AD85100E77159 /* XMPPDataForm.m in Sources */,
 				F62CF7651E0AD85100E77159 /* XMPPDataFormField.m in Sources */,
+				F6134FA91E168EA3007EC90B /* XMPPFeature.m in Sources */,
 				F6FAE83B1DFCA3230039EE7A /* XMPPStanza.m in Sources */,
 				F6FAE8651DFCAA720039EE7A /* XMPPStanzaError.m in Sources */,
 			);
