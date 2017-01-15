@@ -179,3 +179,17 @@ NSString * const XMPPStanzaErrorTypeKey = @"XMPPStanzaErrorTypeKey";
 }
 
 @end
+
+@implementation NSError (XMPPStanzaError)
+
++ (nullable instancetype)errorWithElement:(nonnull PXElement *)element
+{
+    XMPPStanzaErrorCode code = XMPPStanzaErrorCodeUndefinedCondition;
+    if ([element.namespace isEqual: @"urn:ietf:params:xml:ns:xmpp-stanzas"]) {
+        NSDictionary *errorCodes = [XMPPStanzaError xmpp_stanzaErrorCodesByErrorName];
+        code = [errorCodes[element.name] integerValue] ?: XMPPStanzaErrorCodeUndefinedCondition;
+    }
+    return  [NSError errorWithDomain:XMPPStanzaErrorDomain code:code userInfo:nil];
+}
+
+@end

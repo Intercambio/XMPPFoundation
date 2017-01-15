@@ -57,3 +57,7 @@ NS_SWIFT_NAME(StanzaError)
 @property (nonatomic, readonly, nonnull) NSError *error;
 
 @end
+
+@interface NSError (XMPPStanzaError)
++ (nullable instancetype)errorWithElement:(nonnull PXElement *)element;
+@end
