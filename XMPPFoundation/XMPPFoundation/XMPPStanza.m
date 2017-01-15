@@ -44,12 +44,12 @@
     [self setValue:JIDString forAttribute:@"from"];
 }
 
-- (NSString *)stanzaID
+- (NSString *)identifier
 {
     return [self valueForAttribute:@"id"];
 }
 
-- (void)setStanzaID:(NSString *)stanzaID
+- (void)setIdentifier:(NSString *)stanzaID
 {
     [self setValue:stanzaID forAttribute:@"id"];
 }

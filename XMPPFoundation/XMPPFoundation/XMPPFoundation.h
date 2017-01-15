@@ -22,4 +22,9 @@ FOUNDATION_EXPORT const unsigned char XMPPFoundationVersionString[];
 #import <XMPPFoundation/XMPPPresenceStanza.h>
 #import <XMPPFoundation/XMPPIQStanza.h>
 #import <XMPPFoundation/XMPPStanzaError.h>
-#import <XMPPFoundation/XMPPHandler.h>
+#import <XMPPFoundation/XMPPDispatcher.h>
+#import <XMPPFoundation/XMPPDataForm.h>
+#import <XMPPFoundation/XMPPDataFormField.h>
+#import <XMPPFoundation/XMPPDataFormOption.h>
+#import <XMPPFoundation/XMPPResultSet.h>
+#import <XMPPFoundation/XMPPFeature.h>

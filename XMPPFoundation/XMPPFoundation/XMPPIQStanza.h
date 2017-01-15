@@ -16,9 +16,10 @@ typedef NS_ENUM(NSUInteger, XMPPIQStanzaType) {
     XMPPIQStanzaTypeSet,
     XMPPIQStanzaTypeResult,
     XMPPIQStanzaTypeError
-};
+} NS_SWIFT_NAME(IQStanzaType);
 
+NS_SWIFT_NAME(IQStanza)
 @interface XMPPIQStanza : XMPPStanza
-+ (nonnull PXDocument *)documentWithIQFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to;
++ (nonnull PXDocument *)documentWithIQFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to NS_SWIFT_NAME(makeDocumentWithIQStanza(from:to:));
 @property (nonatomic, readwrite) XMPPIQStanzaType type;
 @end

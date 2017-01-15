@@ -17,9 +17,12 @@ typedef NS_ENUM(NSUInteger, XMPPMessageStanzaType) {
     XMPPMessageStanzaTypeGroupchat,
     XMPPMessageStanzaTypeHeadline,
     XMPPMessageStanzaTypeNormal
-};
+} NS_SWIFT_NAME(MessageStanzaType);
 
+NS_SWIFT_NAME(MessageStanza)
 @interface XMPPMessageStanza : XMPPStanza
-+ (nonnull PXDocument *)documentWithMessageFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to;
++ (nonnull PXDocument *)documentWithMessageFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to NS_SWIFT_NAME(makeDocumentWithMessageStanza(from:to:));
 @property (nonatomic, readwrite) XMPPMessageStanzaType type;
+@property (nonatomic, readwrite, nullable) NSString *originID;
+- (nullable NSString *)stanzaIDBy:(nonnull XMPPJID *)by;
 @end

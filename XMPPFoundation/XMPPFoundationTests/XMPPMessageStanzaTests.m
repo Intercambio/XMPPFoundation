@@ -26,7 +26,7 @@
     XCTAssertTrue([document.root isKindOfClass:[XMPPMessageStanza class]]);
     XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
 
-    XCTAssertNotNil(message.stanzaID);
+    XCTAssertNotNil(message.identifier);
     XCTAssertEqualObjects(message.from, from);
     XCTAssertEqualObjects(message.to, to);
 
@@ -87,6 +87,33 @@
 
     [message setValue:nil forAttribute:@"type"];
     XCTAssertEqual(message.type, XMPPMessageStanzaTypeUndefined);
+}
+
+- (void)testOriginID {
+    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:nil to:nil];
+    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+
+    PXElement *originID = [message addElementWithName:@"origin-id" namespace:@"urn:xmpp:sid:0" content:nil];
+    [originID setValue:@"1245" forAttribute:@"id"];
+    
+    XCTAssertEqualObjects(message.originID, @"1245");
+    
+    message.originID = @"678";
+    
+    XCTAssertEqualObjects(message.originID, @"678");
+}
+
+- (void)testStanzaID {
+    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:nil to:nil];
+    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+    
+    PXElement *stanzaID = [message addElementWithName:@"stanza-id" namespace:@"urn:xmpp:sid:0" content:nil];
+    [stanzaID setValue:@"1245" forAttribute:@"id"];
+    [stanzaID setValue:@"romeo@example.com" forAttribute:@"by"];
+    
+    XCTAssertEqualObjects([message stanzaIDBy:JID(@"romeo@example.com/foo")], @"1245");
+    XCTAssertEqualObjects([message stanzaIDBy:JID(@"romeo@example.com")], @"1245");
+    XCTAssertNil([message stanzaIDBy:JID(@"juliet@example.com/foo")]);
 }
 
 @end
