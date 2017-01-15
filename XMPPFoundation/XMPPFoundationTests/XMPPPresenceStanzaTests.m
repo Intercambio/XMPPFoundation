@@ -17,8 +17,7 @@
 
 - (void)testSetType
 {
-    PXDocument *document = [XMPPPresenceStanza documentWithPresenceFrom:nil to:nil];
-    XMPPPresenceStanza *presence = (XMPPPresenceStanza *)[document root];
+    XMPPPresenceStanza *presence = [[XMPPPresenceStanza alloc] initWithFrom:nil to:nil];
 
     presence.type = XMPPPresenceStanzaTypeUndefined;
     XCTAssertNil([presence valueForAttribute:@"type"]);
@@ -50,8 +49,7 @@
 
 - (void)testGetType
 {
-    PXDocument *document = [XMPPPresenceStanza documentWithPresenceFrom:nil to:nil];
-    XMPPPresenceStanza *presence = (XMPPPresenceStanza *)[document root];
+    XMPPPresenceStanza *presence = [[XMPPPresenceStanza alloc] initWithFrom:nil to:nil];
 
     XCTAssertEqual(presence.type, XMPPPresenceStanzaTypeUndefined);
 

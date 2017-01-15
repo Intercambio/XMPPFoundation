@@ -17,8 +17,7 @@
 
 - (void)testSetType
 {
-    PXDocument *document = [XMPPIQStanza documentWithIQFrom:nil to:nil];
-    XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
+    XMPPIQStanza *iq = [[XMPPIQStanza alloc] initWithType:XMPPIQStanzaTypeUndefined from:nil to:nil];
 
     iq.type = XMPPIQStanzaTypeUndefined;
     XCTAssertNil([iq valueForAttribute:@"type"]);
@@ -41,8 +40,7 @@
 
 - (void)testGetType
 {
-    PXDocument *document = [XMPPIQStanza documentWithIQFrom:nil to:nil];
-    XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
+    XMPPIQStanza *iq = [[XMPPIQStanza alloc] initWithType:XMPPIQStanzaTypeUndefined from:nil to:nil];
 
     XCTAssertEqual(iq.type, XMPPIQStanzaTypeUndefined);
 
@@ -67,10 +65,9 @@
 
 - (void)testErrorResponse
 {
-    PXDocument *document = [XMPPIQStanza documentWithIQFrom:JID(@"romeo@example.com")
-                                                         to:JID(@"juliet@example.com")];
-    
-    XMPPIQStanza *request = (XMPPIQStanza *)[document root];
+    XMPPIQStanza *request = [[XMPPIQStanza alloc] initWithType:XMPPIQStanzaTypeGet
+                                                          from:JID(@"romeo@example.com")
+                                                            to:JID(@"juliet@example.com")];
     request.identifier = @"123";
     
     NSError *error = [NSError errorWithDomain:XMPPStanzaErrorDomain

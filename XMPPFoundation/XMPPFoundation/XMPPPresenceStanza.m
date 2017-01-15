@@ -30,6 +30,17 @@
     return document;
 }
 
+- (nonnull instancetype)initWithFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to {
+    PXDocument *document = [[PXDocument alloc] initWithElementName:@"presence"
+                                                         namespace:@"jabber:client"
+                                                            prefix:nil];
+    XMPPPresenceStanza *presence = (XMPPPresenceStanza *)[document root];
+    presence.from = from;
+    presence.to = to;
+    presence.identifier = [[[NSUUID UUID] UUIDString] lowercaseString];
+    return presence;
+}
+
 - (XMPPPresenceStanzaType)type
 {
     NSString *typeString = [self valueForAttribute:@"type"];

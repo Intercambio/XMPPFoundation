@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, XMPPPresenceStanzaType) {
 
 NS_SWIFT_NAME(PresenceStanza)
 @interface XMPPPresenceStanza : XMPPStanza
-+ (nonnull PXDocument *)documentWithPresenceFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to NS_SWIFT_NAME(makeDocumentWithPresenceStanza(from:to:));
+- (nonnull instancetype)initWithFrom:(nullable XMPPJID *)from
+                                  to:(nullable XMPPJID *)to;
+
 @property (nonatomic, readwrite) XMPPPresenceStanzaType type;
 @end
