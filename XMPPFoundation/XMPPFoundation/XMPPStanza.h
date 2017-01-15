@@ -16,5 +16,5 @@ NS_SWIFT_NAME(Stanza)
 @property (nonatomic, readwrite, copy, nullable) XMPPJID *to;
 @property (nonatomic, readwrite, copy, nullable) XMPPJID *from;
 @property (nonatomic, readwrite, copy, nullable) NSString *identifier;
-@property (nonatomic, readonly, nullable) NSError *error;
+@property (nonatomic, readwrite, nullable) NSError *error;
 @end

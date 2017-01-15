@@ -30,6 +30,22 @@
     return document;
 }
 
+- (nonnull instancetype)initWithType:(XMPPIQStanzaType)type
+                                from:(nullable XMPPJID *)from
+                                  to:(nullable XMPPJID *)to
+{
+    PXDocument *document = [[PXDocument alloc] initWithElementName:@"iq"
+                                                         namespace:@"jabber:client"
+                                                            prefix:nil];
+    
+    XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
+    iq.from = from;
+    iq.to = to;
+    iq.type = type;
+    iq.identifier = [[[NSUUID UUID] UUIDString] lowercaseString];
+    return iq;
+}
+
 - (XMPPIQStanzaType)type
 {
     NSString *typeString = [self valueForAttribute:@"type"];
@@ -67,6 +83,25 @@
         break;
     }
     [self setValue:typeString forAttribute:@"type"];
+}
+
+- (nonnull XMPPIQStanza *)response {
+    PXDocument *document = [[PXDocument alloc] initWithElementName:@"iq"
+                                                         namespace:@"jabber:client"
+                                                            prefix:nil];
+    XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
+    iq.from = self.to;
+    iq.to = self.from;
+    iq.identifier = self.identifier;
+    iq.type = XMPPIQStanzaTypeResult;
+    return iq;
+}
+
+- (nonnull XMPPIQStanza *)responseWithError:(nullable NSError *)error {
+    XMPPIQStanza *iq = [self response];
+    iq.error = error;
+    iq.type = XMPPIQStanzaTypeError;
+    return iq;
 }
 
 @end

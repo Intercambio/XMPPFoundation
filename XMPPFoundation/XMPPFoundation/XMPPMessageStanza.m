@@ -31,6 +31,17 @@
     return document;
 }
 
+- (nonnull instancetype)initWithFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to {
+    PXDocument *document = [[PXDocument alloc] initWithElementName:@"message"
+                                                         namespace:@"jabber:client"
+                                                            prefix:nil];
+    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+    message.from = from;
+    message.to = to;
+    message.identifier = [[[NSUUID UUID] UUIDString] lowercaseString];
+    return message;
+}
+
 - (XMPPMessageStanzaType)type
 {
     NSString *typeString = [self valueForAttribute:@"type"];

@@ -50,10 +50,14 @@ typedef NS_ENUM(NSInteger, XMPPStanzaErrorType) {
 NS_SWIFT_NAME(StanzaError)
 @interface XMPPStanzaError : PXElement
 
-@property (nonatomic, readonly) XMPPStanzaErrorType type;
-@property (nonatomic, readonly) XMPPStanzaErrorCode code;
+@property (nonatomic, readwrite) XMPPStanzaErrorType type;
+@property (nonatomic, readwrite) XMPPStanzaErrorCode code;
 @property (nonatomic, readonly, nullable) NSString *text;
 
 @property (nonatomic, readonly, nonnull) NSError *error;
 
+@end
+
+@interface NSError (XMPPStanzaError)
++ (nullable instancetype)errorWithElement:(nonnull PXElement *)element;
 @end

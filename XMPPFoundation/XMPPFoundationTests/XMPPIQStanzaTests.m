@@ -17,8 +17,7 @@
 
 - (void)testSetType
 {
-    PXDocument *document = [XMPPIQStanza documentWithIQFrom:nil to:nil];
-    XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
+    XMPPIQStanza *iq = [[XMPPIQStanza alloc] initWithType:XMPPIQStanzaTypeUndefined from:nil to:nil];
 
     iq.type = XMPPIQStanzaTypeUndefined;
     XCTAssertNil([iq valueForAttribute:@"type"]);
@@ -41,8 +40,7 @@
 
 - (void)testGetType
 {
-    PXDocument *document = [XMPPIQStanza documentWithIQFrom:nil to:nil];
-    XMPPIQStanza *iq = (XMPPIQStanza *)[document root];
+    XMPPIQStanza *iq = [[XMPPIQStanza alloc] initWithType:XMPPIQStanzaTypeUndefined from:nil to:nil];
 
     XCTAssertEqual(iq.type, XMPPIQStanzaTypeUndefined);
 
@@ -63,6 +61,27 @@
 
     [iq setValue:nil forAttribute:@"type"];
     XCTAssertEqual(iq.type, XMPPIQStanzaTypeUndefined);
+}
+
+- (void)testErrorResponse
+{
+    XMPPIQStanza *request = [[XMPPIQStanza alloc] initWithType:XMPPIQStanzaTypeGet
+                                                          from:JID(@"romeo@example.com")
+                                                            to:JID(@"juliet@example.com")];
+    request.identifier = @"123";
+    
+    NSError *error = [NSError errorWithDomain:XMPPStanzaErrorDomain
+                                         code:XMPPStanzaErrorCodeNotAllowed
+                                     userInfo:nil];
+    
+    XMPPIQStanza *response = [request responseWithError:error];
+    
+    XCTAssertEqualObjects(response.to, JID(@"romeo@example.com"));
+    XCTAssertEqualObjects(response.from, JID(@"juliet@example.com"));
+    XCTAssertEqualObjects(response.identifier, @"123");
+    
+    XCTAssertEqualObjects(response.error.domain, XMPPStanzaErrorDomain);
+    XCTAssertEqual(response.error.code, XMPPStanzaErrorCodeNotAllowed);
 }
 
 @end

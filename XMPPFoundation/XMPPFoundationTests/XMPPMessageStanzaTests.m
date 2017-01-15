@@ -17,14 +17,10 @@
 
 - (void)testDocumentWithMessage
 {
-
     XMPPJID *from = JID(@"romeo@example.com");
     XMPPJID *to = JID(@"juliet@example.com");
-
-    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:from to:to];
-
-    XCTAssertTrue([document.root isKindOfClass:[XMPPMessageStanza class]]);
-    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+    
+    XMPPMessageStanza *message = [[XMPPMessageStanza alloc] initWithFrom:from to:to];
 
     XCTAssertNotNil(message.identifier);
     XCTAssertEqualObjects(message.from, from);
@@ -35,8 +31,7 @@
 
 - (void)testSetType
 {
-    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:nil to:nil];
-    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+    XMPPMessageStanza *message = [[XMPPMessageStanza alloc] initWithFrom:nil to:nil];
 
     message.type = XMPPMessageStanzaTypeUndefined;
     XCTAssertNil([message valueForAttribute:@"type"]);
@@ -62,9 +57,7 @@
 
 - (void)testGetType
 {
-    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:nil to:nil];
-    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
-
+    XMPPMessageStanza *message = [[XMPPMessageStanza alloc] initWithFrom:nil to:nil];
     XCTAssertEqual(message.type, XMPPMessageStanzaTypeUndefined);
 
     [message setValue:@"chat" forAttribute:@"type"];
@@ -90,8 +83,7 @@
 }
 
 - (void)testOriginID {
-    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:nil to:nil];
-    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+    XMPPMessageStanza *message = [[XMPPMessageStanza alloc] initWithFrom:nil to:nil];
 
     PXElement *originID = [message addElementWithName:@"origin-id" namespace:@"urn:xmpp:sid:0" content:nil];
     [originID setValue:@"1245" forAttribute:@"id"];
@@ -104,8 +96,7 @@
 }
 
 - (void)testStanzaID {
-    PXDocument *document = [XMPPMessageStanza documentWithMessageFrom:nil to:nil];
-    XMPPMessageStanza *message = (XMPPMessageStanza *)[document root];
+    XMPPMessageStanza *message = [[XMPPMessageStanza alloc] initWithFrom:nil to:nil];
     
     PXElement *stanzaID = [message addElementWithName:@"stanza-id" namespace:@"urn:xmpp:sid:0" content:nil];
     [stanzaID setValue:@"1245" forAttribute:@"id"];
