@@ -20,6 +20,12 @@ typedef NS_ENUM(NSUInteger, XMPPIQStanzaType) {
 
 NS_SWIFT_NAME(IQStanza)
 @interface XMPPIQStanza : XMPPStanza
+
 + (nonnull PXDocument *)documentWithIQFrom:(nullable XMPPJID *)from to:(nullable XMPPJID *)to NS_SWIFT_NAME(makeDocumentWithIQStanza(from:to:));
+
 @property (nonatomic, readwrite) XMPPIQStanzaType type;
+
+- (nonnull XMPPIQStanza *)response NS_SWIFT_NAME(makeResponse());
+- (nonnull XMPPIQStanza *)responseWithError:(nullable NSError *)error NS_SWIFT_NAME(makeResponse(with:));
+
 @end

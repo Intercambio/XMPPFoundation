@@ -127,6 +127,28 @@ NSString * const XMPPStanzaErrorTypeKey = @"XMPPStanzaErrorTypeKey";
     return XMPPStanzaErrorCodeUndefinedCondition;
 }
 
+- (void)setCode:(XMPPStanzaErrorCode)code {
+    if (self.numberOfElements > 0) {
+        PXElement *definedCondition = [self elementAtIndex:0];
+        if ([definedCondition.namespace isEqual: @"urn:ietf:params:xml:ns:xmpp-stanzas"]) {
+            [definedCondition removeFromParent];
+        }
+    }
+    
+    __block NSString *errorName = @"undefined-condition";
+    NSDictionary *errorCodes = [[self class] xmpp_stanzaErrorCodesByErrorName];
+    [errorCodes enumerateKeysAndObjectsUsingBlock:^(NSString *name, NSNumber *codeValue, BOOL * _Nonnull stop) {
+        if ([codeValue integerValue] == code) {
+            errorName = name;
+            *stop = YES;
+        }
+    }];
+    
+    [self addElementWithName:errorName
+                   namespace:@"urn:ietf:params:xml:ns:xmpp-stanzas"
+                     content:nil];
+}
+
 - (NSString *)text {
     __block NSString *text = nil;
     [self enumerateElementsUsingBlock:^(PXElement *element, BOOL *stop) {

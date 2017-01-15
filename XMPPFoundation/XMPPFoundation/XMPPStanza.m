@@ -66,4 +66,23 @@
     return error;
 }
 
+- (void)setError:(NSError *)error {
+
+    [self enumerateElementsUsingBlock:^(PXElement *element, BOOL *stop) {
+        if ([element isKindOfClass:[XMPPStanzaError class]]) {
+            [element removeFromParent];
+            *stop = YES;
+        }
+    }];
+    
+    XMPPStanzaError *errorElement = (XMPPStanzaError *)[self addElementWithName:@"error" namespace:@"jabber:client" content:nil];
+    
+    errorElement.type = XMPPStanzaErrorTypeUndefined;
+    if ([error.domain isEqualToString:XMPPStanzaErrorDomain]) {
+        errorElement.code = error.code;
+    } else {
+        errorElement.code = XMPPStanzaErrorTypeUndefined;
+    }
+}
+
 @end
